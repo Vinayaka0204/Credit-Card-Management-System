@@ -1,9 +1,6 @@
 package com.project.ccm.entity;
 
-
-
 import jakarta.persistence.Column;
-
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,27 +11,27 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "applicant")
 public class Applicant {
-	public Applicant() {}
-	
+	public Applicant() {
+	}
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(name = "name", nullable=false)
-    private String name;
+	@Column(name = "name", nullable = false)
+	private String name;
 
-    @Column(name = "phone" , nullable=false)
-    private String phone;
+	@Column(name = "phone", nullable = false)
+	private String phone;
 
-    @Column(name="address")
-    private String address;
+	@Column(name = "address")
+	private String address;
 
-    @Column(name="cardType")
-    private String cardType;
-    
-    @Column(name="status")
-    private String status;
+	@Column(name = "cardType")
+	private String cardType;
+
+	@Column(name = "status")
+	private String status;
 
 	public Applicant(String name, String phone, String address, String cardType, String status) {
 		super();
@@ -94,4 +91,3 @@ public class Applicant {
 		this.status = status;
 	}
 }
-

@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.project.ccm.entity.Login;
 
-public interface LoginRepository extends JpaRepository<Login,Long>{
+public interface LoginRepository extends JpaRepository<Login, Long> {
 	List<Login> findByPhone(String phone);
 }

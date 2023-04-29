@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import com.project.ccm.entity.Transactions;
 import com.project.ccm.repository.TransactionRepository;
 import com.project.ccm.service.TransactionService;
+
 @Service
-public class TransactionServiceImpl implements TransactionService{
+public class TransactionServiceImpl implements TransactionService {
 	private TransactionRepository transactRepo;
-	
 
 	public TransactionServiceImpl(TransactionRepository transactRepo) {
 		super();
@@ -19,10 +19,9 @@ public class TransactionServiceImpl implements TransactionService{
 
 	@Override
 	public List<Transactions> getAllTransactions(String phone) {
-		if(!transactRepo.findAllByPhone(phone).isEmpty()) {
-		return transactRepo.findAllByPhone(phone);
-		}
-		else {
+		if (!transactRepo.findAllByPhone(phone).isEmpty()) {
+			return transactRepo.findAllByPhone(phone);
+		} else {
 			return null;
 		}
 	}

@@ -24,18 +24,17 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public boolean Validate(String phone) {
 		List<Login> user = loginRepo.findByPhone(phone);
-		if(user.isEmpty()) {
+		if (user.isEmpty()) {
 			return false;
 		} else {
 			return true;
-		} 
+		}
 	}
-	
-	
+
 	@Override
 	public Login saveCredentials(String phone) {
 		List<Applicant> applicants = applicantRepo.findByPhone(phone);
-		if(!applicants.isEmpty()) {
+		if (!applicants.isEmpty()) {
 			Applicant applicant = applicants.get(0);
 			Login credentials = new Login(applicant);
 			return loginRepo.save(credentials);
@@ -46,11 +45,11 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public boolean ValidateAdmin(String phone) {
-		if(phone.equals("1231231231")) {
+		if (phone.equals("1231231231")) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
-	
+
 }

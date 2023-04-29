@@ -1,7 +1,5 @@
 package com.project.ccm.entity;
 
-
-
 import jakarta.persistence.Column;
 
 import jakarta.persistence.Entity;
@@ -11,24 +9,24 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Login")
+@Table(name = "Login")
 public class Login {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name="name")
-    private String name;
-    @Column(name="phone")
-    private String phone;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(name = "name")
+	private String name;
+	@Column(name = "phone")
+	private String phone;
 
-    
-    public Login() {}
-    
-    public Login(Applicant applicant) {
-        this.name = applicant.getName();
-        this.phone = applicant.getPhone();
-    }
+	public Login() {
+	}
+
+	public Login(Applicant applicant) {
+		this.name = applicant.getName();
+		this.phone = applicant.getPhone();
+	}
 
 	public String getName() {
 		return name;
@@ -49,5 +47,5 @@ public class Login {
 	public Long getId() {
 		return id;
 	}
-    
+
 }
