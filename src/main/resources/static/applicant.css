@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+body{
+	text-align:center;
+}
+.Project{
+	padding:10px;
+}
+.container{
+	text-align: center;
+	padding: 10px;
+}
+.row{
+	padding:10px;
+}

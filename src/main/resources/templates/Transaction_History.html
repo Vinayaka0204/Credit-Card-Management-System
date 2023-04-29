@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Credit Card Management System</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+rel="stylesheet" 
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+crossorigin="anonymous">
+<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Options</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ">
+        <li class="nav-item">
+          <a class="nav-link"  th:href="@{/}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" th:href="@{/history}">Transaction History</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+	
+	<div class="row">
+  <div class="col-ld-6 col-sm-6 col-md-6 container justify-content-center card" style="padding:10px;">
+    <div class="card-body">
+      <form th:action="@{/applicant/history}" method="GET" style="padding:10px;">
+        <div class="form-group" style="padding:10px;">
+          <label>Applicant Phone</label>
+          <input type="tel" name="phone" pattern="[0-9]{10}" placeholder="Enter Your Phone Number" required th:object="${mobile}" th:value="${phone}" class="form-control">
+	</div>
+        <div class="box-footer" style="padding:10px;">
+          <button type="submit" class="btn btn-success">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="container">
+	
+		<div class="row">
+			<h3>Transaction History</h3>
+		</div>
+		<table class="table table-bordered table-hover table-striped">
+			<thead class="table-dark" >
+				<tr>
+					<th>Transaction Id</th>
+					<th>User Phone Number</th>
+					<th>Transaction Amount</th>
+				</tr>
+			</thead>
+			<tbody class="table-striped">
+				<tr th:each = "Transaction: ${Transactions}">
+					<td th:text="${Transaction.id}"></td>
+					<td th:text="${Transaction.phone}"></td>
+					<td th:text="${Transaction.transactionAmt}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
